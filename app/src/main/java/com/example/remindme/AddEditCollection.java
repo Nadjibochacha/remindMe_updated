@@ -36,9 +36,6 @@ public class AddEditCollection extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_edit_collection);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            newMethod();
-        }
         collectionBox = MainActivity.boxStore.boxFor(Collection.class);
 
         // Handle Insets
@@ -151,12 +148,5 @@ public class AddEditCollection extends AppCompatActivity {
         if (mins == 60) return "Every hour";
         if (mins == 120) return "Every 2 hours";
         return "Every 6 hours";
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.S)
-    public void newMethod() {// Better way to request the permission
-        Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
-        intent.setData(Uri.parse("package:" + getPackageName())); // This takes the user directly to YOUR app's toggle
-        startActivity(intent);
     }
 }

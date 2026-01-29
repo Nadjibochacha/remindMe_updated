@@ -1,0 +1,11 @@
+toml
+[versions]
+# ... keep your existing versions
+objectbox = "4.0.3" # Check for the latest version at objectbox.io
+
+[libraries]
+# ... keep your existing libraries
+objectbox-gradle-plugin = { group = "io.objectbox", name = "objectbox-gradle-plugin", version.ref = "objectbox" }
+
+# Note: We are adding it as a library for the classpath, not a plugin alias, 
+# to match your current build.gradle.kts structure.
